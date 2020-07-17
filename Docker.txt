@@ -1,0 +1,45 @@
+Site: http://manzurajorayeva.ml:8080
+Docker Hub : https://hub.docker.com
+Linux Commands
+ll - list files
+pwd - directory location
+cd {directory_name}- go to directory
+Installation Steps (Docker on Ubuntu 16)
+sudo apt update - OS update ettik
+sudo apt install apt-transport-https ca-certificates curl software-properties-common 
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+sudo apt update
+apt-cache policy docker-ce
+sudo apt install docker-ce
+ 
+Docker Status Check
+sudo systemctl status docker
+ 
+Pulling Apache2 Image 
+docker pull httpd
+ 
+Run Apache2 Web Server As a container Command
+docker run -dit --name {container_name} -p 8080:80 -v {html_location_directory}:/usr/local/apache2/htdocs/ httpd:2.4
+ 
+Listing Containers
+docker container ls
+ 
+Create New Image From Container
+docker commit {container_id} {imagename}:{tag}
+ 
+Listing Images
+docker images
+ 
+Matching Local to Remote Repository (Image)
+docker tag {local-image}:{tagname} {reponame}:{tagname}
+ 
+Uploading Image to Remote  Hub
+docker push {reponame}:{tagname}
+ 
+Downloading Image From Remote Hub
+docker pull {reponame}:{tagname}
+ 
+Run Apache2 Web Server As a container Command with Our Images
+docker run -dit --name {container_name} -p 8080:80 -v {html_location_directory}:/usr/local/apache2/htdocs/ {reponame}:{tagname}
+ 
